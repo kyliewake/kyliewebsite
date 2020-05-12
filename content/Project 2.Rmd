@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tinytex)
 library(readxl)
-marriage<-read_excel("/Users/kyliewakefield/Documents/UT/Spring 2020/dataproject2.xlsx")
+marriage<-read_excel("/Users/kyliewakefield/Documents/UT/Spring 2020/Website/content/dataproject2.xlsx")
 ```
 
 ## MANOVA/ANOVA Testing

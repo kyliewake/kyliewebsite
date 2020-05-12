@@ -12,12 +12,10 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = "center", warning = 
 tidy=TRUE, tidy.opts=list(width.cutoff=60), R.options=list(max.print=100))
 ```
 
-##Introduction
-```{r}
-#The two datasets I have created are called "Numeric" and "Categorical." Each of these datasets contain information about cancer in countries across the world. The data was obtained from Cancer Atlas, which gives data on cancer to the public. They provide information in each country assessing the rates of risk of cancer, the current rates of cancer in the country, and ways the countries are trying to alleviate the prevelance of cancer. In the "Numeric" dataset, there are four variables: "Country or Territory," "Cancer Survivors" diagnosed within the last five years across both sexes per 100,000 people, "Radiotherapy availability" or the number of machines available per 1000 patients, and "UICC Organizations" that are cancer organizations. In the "Categorical" dataset, there are three variables: "Country or Territory," "Most common cancer cases worldwide (females)," and "Most common cancer cases worldwide (males)." 
+#Introduction
+##The two datasets I have created are called "Numeric" and "Categorical." Each of these datasets contain information about cancer in countries across the world. The data was obtained from Cancer Atlas, which gives data on cancer to the public. They provide information in each country assessing the rates of risk of cancer, the current rates of cancer in the country, and ways the countries are trying to alleviate the prevelance of cancer. In the "Numeric" dataset, there are four variables: "Country or Territory," "Cancer Survivors" diagnosed within the last five years across both sexes per 100,000 people, "Radiotherapy availability" or the number of machines available per 1000 patients, and "UICC Organizations" that are cancer organizations. In the "Categorical" dataset, there are three variables: "Country or Territory," "Most common cancer cases worldwide (females)," and "Most common cancer cases worldwide (males)." 
 
 #This summer, I will be matriculating in Physician Assistant school. I find cancer research extremely intersting, and hopefully can use some statistical analysis in the future to observe effective treatments and help my patients to the best of my ability. I assume that the most common cancer cases between men and women will differ in each country. Different countries have different cultures, gentic histories, etc. I am also assuming that as the amount of cancer organizations or radiotherapy options increase, the cancer survivors will also increase. More cancer resources might help increase the chances for those with cancer.
-```
 
 ##Setup
 ```{r}
@@ -30,8 +28,8 @@ library(cluster)
 library(readxl)
 library(readr)
 
-Categorical <- read_excel("/Users/kyliewakefield/Documents/UT/Spring 2020/Categorical.xlsx")
-Numeric <- read_excel("/Users/kyliewakefield/Documents/UT/Spring 2020/Numeric.xlsx")
+Categorical <- read_excel("/Users/kyliewakefield/Documents/UT/Spring 2020/Website/content/Categorical.xlsx")
+Numeric <- read_excel("/Users/kyliewakefield/Documents/UT/Spring 2020/Website/content/Numeric.xlsx")
 
 glimpse(Numeric)
 glimpse(Categorical)
