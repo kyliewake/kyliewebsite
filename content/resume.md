@@ -8,7 +8,7 @@ tags:
 title: Resume
 ---
 
-- [My Resume](/RESUMEproject copy.pdf)
+- [My Resume](/RESUMEprojectCopy.pdf)
 
 
 
