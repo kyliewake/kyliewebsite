@@ -6,3 +6,9 @@ linktitle: Cool Python Things
 highlight: yes
 ---
 
+```{python}
+#python code chunk
+
+'ice cream, rasberries, breakfast tacos, and queso'
+```
+'ice cream, rasberries, breakfast tacos, and queso'
