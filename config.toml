@@ -21,7 +21,7 @@ theme = "hugo-sustain"
 
 [params.social]
   Email         = "kwakefield20@gmail.com"
-  LinkedIn      = "Kylie-wakefield-7633b4129"
+  LinkedIn      = "https://www.linkedin.com/in/kylie-wakefield-7633b4129/"
 
 ## Main Menu
 [[menu.main]]
