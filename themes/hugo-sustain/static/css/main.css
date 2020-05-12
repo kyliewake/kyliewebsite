@@ -24,7 +24,7 @@ html, body {
 }
 .navbar-default {
   background-color: #ffffff;
-  border-color: #ffffff;
+  border-color: #3aaecf;
 }
 .navbar-default .navbar-brand {
   color: #6b6b6b;
@@ -186,10 +186,10 @@ html, body {
   text-decoration: none !important;
 }
 .text-muted {
-	color: #6b6b6b;
+	color: #3aaecf;
 }
 div.footer{
-  border-bottom: 5px solid #27A822;;
+  border-bottom: 5px solid #3aaecf;;
 }
 /* Set the fixed height of the footer here */
 /*.footer {
