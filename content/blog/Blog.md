@@ -13,17 +13,17 @@ This tutorial will show you how to create a simple theme in Hugo. I assume that 
 
 We'll start with creating a new site with a very basic template. Then we'll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.
 
-In this tutorial, commands that you enter will start with the "$" prompt. The output will follow. Lines that start with "#" are comments that I've added to explain a point. When I show updates to a file, the ":wq" on the last line means to save the file.
+In this tutorial, commands that you enter will start with the $ prompt. The output will follow. Lines that start with # are comments that I've added to explain a point. When I show updates to a file, the :wq on the last line means to save the file.
 
 Here's an example:
 
 ```
 package main
 
-import "fmt"
+import fmt
 
 func main() {
-    fmt.Print("Hello")
+    fmt.Print(Hello)
 }
 ```
  
@@ -95,7 +95,7 @@ A partial template is a template that can be included in other templates. Partia
 
 Let's use Hugo to create a new web site. I'm a Mac user, so I'll create mine in my home directory, in the Sites folder. If you're using Linux, you might have to create the folder first.
 
-The "new site" command will create a skeleton of a site. It will give you the basic directory structure and a useable configuration file.
+The new site command will create a skeleton of a site. It will give you the basic directory structure and a useable configuration file.
 
 ```
 $ hugo new site ~/Sites/zafta
@@ -135,7 +135,7 @@ in 2 ms
 $ 
 ```
 
-The "`--verbose`" flag gives extra information that will be helpful when we build the template. Every line of the output that starts with "INFO:" or "WARN:" is present because we used that flag. The lines that start with "WARN:" are warning messages. We'll go over them later.
+The `--verbose` flag gives extra information that will be helpful when we build the template. Every line of the output that starts with INFO: or WARN: is present because we used that flag. The lines that start with WARN: are warning messages. We'll go over them later.
 
 We can verify that the command worked by looking at the directory again.
 
@@ -167,7 +167,7 @@ Hugo created two XML files, which is standard, but there are no HTML files.
 
 ### Test the New Site
 
-Verify that you can run the built-in web server. It will dramatically shorten your development cycle if you do. Start it by running the "server" command. If it is successful, you will see output similar to the following:
+Verify that you can run the built-in web server. It will dramatically shorten your development cycle if you do. Start it by running the server command. If it is successful, you will see output similar to the following:
 
 ```
 $ hugo server --verbose
@@ -186,7 +186,7 @@ Web Server is available at http://localhost:1313
 Press Ctrl+C to stop
 ```
 
-Connect to the listed URL (it's on the line that starts with "Web Server"). If everything is working correctly, you should get a page that shows the following:
+Connect to the listed URL (it's on the line that starts with Web Server). If everything is working correctly, you should get a page that shows the following:
 
 ```
 index.xml
@@ -214,14 +214,14 @@ At this point, you've got a working installation and site that we can build upon
 
 Hugo doesn't ship with a default theme. There are a few available (I counted a dozen when I first installed Hugo) and Hugo comes with a command to create new themes.
 
-We're going to create a new theme called "zafta." Since the goal of this tutorial is to show you how to fill out the files to pull in your content, the theme will not contain any CSS. In other words, ugly but functional.
+We're going to create a new theme called zafta. Since the goal of this tutorial is to show you how to fill out the files to pull in your content, the theme will not contain any CSS. In other words, ugly but functional.
 
-All themes have opinions on content and layout. For example, Zafta uses "post" over "blog". Strong opinions make for simpler templates but differing opinions make it tougher to use themes. When you build a theme, consider using the terms that other themes do.
+All themes have opinions on content and layout. For example, Zafta uses post over blog. Strong opinions make for simpler templates but differing opinions make it tougher to use themes. When you build a theme, consider using the terms that other themes do.
 
 
 ### Create a Skeleton
 
-Use the hugo "new" command to create the skeleton of a theme. This creates the directory structure and places empty files for you to fill out.
+Use the hugo new command to create the skeleton of a theme. This creates the directory structure and places empty files for you to fill out.
 
 ```
 $ hugo new theme zafta
@@ -254,16 +254,16 @@ Please take a minute to fill out the theme.toml and LICENSE.md files. They're op
 
 ```
 $ vi themes/zafta/theme.toml
-author = "michael d henderson"
-description = "a minimal working template"
-license = "MIT"
-name = "zafta"
-source_repo = ""
-tags = ["tags", "categories"]
+author = michael d henderson
+description = a minimal working template
+license = MIT
+name = zafta
+source_repo = 
+tags = [tags, categories]
 :wq
 
 ## also edit themes/zafta/LICENSE.md and change
-## the bit that says "YOUR_NAME_HERE"
+## the bit that says YOUR_NAME_HERE
 ```
 
 Note that the the skeleton's template files are empty. Don't worry, we'll be changing that shortly.
@@ -282,17 +282,17 @@ $
 
 ### Update the Configuration File to Use the Theme
 
-Now that we've got a theme to work with, it's a good idea to add the theme name to the configuration file. This is optional, because you can always add "-t zafta" on all your commands. I like to put it the configuration file because I like shorter command lines. If you don't put it in the configuration file or specify it on the command line, you won't use the template that you're expecting to.
+Now that we've got a theme to work with, it's a good idea to add the theme name to the configuration file. This is optional, because you can always add -t zafta on all your commands. I like to put it the configuration file because I like shorter command lines. If you don't put it in the configuration file or specify it on the command line, you won't use the template that you're expecting to.
 
 Edit the file to add the theme, add a title for the site, and specify that all of our content will use the TOML format.
 
 ```
 $ vi config.toml
-theme = "zafta"
-baseurl = ""
-languageCode = "en-us"
-title = "zafta - totally refreshing"
-MetaDataFormat = "toml"
+theme = zafta
+baseurl = 
+languageCode = en-us
+title = zafta - totally refreshing
+MetaDataFormat = toml
 :wq
 
 $
@@ -337,7 +337,7 @@ Notice four things:
 1. Hugo created a home page. This is the file public/index.html.
 2. Hugo created a css/ directory.
 3. Hugo created a js/ directory.
-4. Hugo claimed that it created 0 pages. It created a file and copied over static files, but didn't create any pages. That's because it considers a "page" to be a file created directly from a content file. It doesn't count things like the index.html files that it creates automatically.
+4. Hugo claimed that it created 0 pages. It created a file and copied over static files, but didn't create any pages. That's because it considers a page to be a file created directly from a content file. It doesn't count things like the index.html files that it creates automatically.
 
 #### The Home Page
 
@@ -400,11 +400,11 @@ Note: If you're building on an SSD, you should ignore this. Churning on a SSD ca
 
 ### Hugo's Watch Option
 
-Hugo's "`--watch`" option will monitor the content/ and your theme directories for changes and rebuild the site automatically.
+Hugo's `--watch` option will monitor the content/ and your theme directories for changes and rebuild the site automatically.
 
 ### Live Reload
 
-Hugo's built in web server supports live reload. As pages are saved on the server, the browser is told to refresh the page. Usually, this happens faster than you can say, "Wow, that's totally amazing."
+Hugo's built in web server supports live reload. As pages are saved on the server, the browser is told to refresh the page. Usually, this happens faster than you can say, Wow, that's totally amazing.
 
 ### Development Commands
 
@@ -440,7 +440,7 @@ Watching for changes in /Users/quoha/Sites/zafta/content
 Serving pages from /Users/quoha/Sites/zafta/public
 Web Server is available at http://localhost:1313
 Press Ctrl+C to stop
-INFO: 2014/09/29 File System Event: ["/Users/quoha/Sites/zafta/themes/zafta/layouts/index.html": MODIFY|ATTRIB]
+INFO: 2014/09/29 File System Event: [/Users/quoha/Sites/zafta/themes/zafta/layouts/index.html: MODIFY|ATTRIB]
 Change detected, rebuilding site
 
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
@@ -515,18 +515,18 @@ $ cat public/index.html
 <html> 
 <body> 
   <p>hugo says hello!</p> 
-<script>document.write('<script src="http://' 
+<script>document.write('<script src=http://' 
         + (location.host || 'localhost').split(':')[0] 
-    + ':1313/livereload.js?mindelay=10"></' 
+    + ':1313/livereload.js?mindelay=10></' 
         + 'script>')</script></body> 
 </html>
 ```
 
 When you use `--watch`, the Live Reload script is added by Hugo. Look for live reload in the documentation to see what it does and how to disable it.
 
-### Build a "Dynamic" Home Page
+### Build a Dynamic Home Page
 
-"Dynamic home page?" Hugo's a static web site generator, so this seems an odd thing to say. I mean let's have the home page automatically reflect the content in the site every time Hugo builds it. We'll use iteration in the template to do that.
+Dynamic home page? Hugo's a static web site generator, so this seems an odd thing to say. I mean let's have the home page automatically reflect the content in the site every time Hugo builds it. We'll use iteration in the template to do that.
 
 #### Create New Posts
 
@@ -546,12 +546,12 @@ $
 
 That wasn't very nice, was it?
 
-The "new" command uses an archetype to create the post file. Hugo created an empty default archetype file, but that causes an error when there's a theme. For me, the workaround was to create an archetypes file specifically for the post type.
+The new command uses an archetype to create the post file. Hugo created an empty default archetype file, but that causes an error when there's a theme. For me, the workaround was to create an archetypes file specifically for the post type.
 
 ```
 $ vi themes/zafta/archetypes/post.md
 +++
-Description = ""
+Description = 
 Tags = []
 Categories = []
 +++
@@ -583,10 +583,10 @@ total 16
 $ cat content/post/first.md 
 +++
 Categories = []
-Description = ""
+Description = 
 Tags = []
-date = "2014-09-29T21:54:53-05:00"
-title = "first"
+date = 2014-09-29T21:54:53-05:00
+title = first
 
 +++
 my first post
@@ -594,10 +594,10 @@ my first post
 $ cat content/post/second.md 
 +++
 Categories = []
-Description = ""
+Description = 
 Tags = []
-date = "2014-09-29T21:57:09-05:00"
-title = "second"
+date = 2014-09-29T21:57:09-05:00
+title = second
 
 +++
 my second post
@@ -613,7 +613,7 @@ $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{"category":"categories", "tag":"tags"}
+INFO: 2014/09/29 found taxonomies: map[string]string{category:categories, tag:tags}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content 
 0 future content 
@@ -639,9 +639,9 @@ The new files are empty because because the templates used to generate the conte
 
 ### List and Single Templates
 
-In Hugo, we have three major kinds of templates. There's the home page template that we updated previously. It is used only by the home page. We also have "single" templates which are used to generate output for a single content file. We also have "list" templates that are used to group multiple pieces of content before generating output.
+In Hugo, we have three major kinds of templates. There's the home page template that we updated previously. It is used only by the home page. We also have single templates which are used to generate output for a single content file. We also have list templates that are used to group multiple pieces of content before generating output.
 
-Generally speaking, list templates are named "list.html" and single templates are named "single.html."
+Generally speaking, list templates are named list.html and single templates are named single.html.
 
 There are three other types of templates: partials, content views, and terms. We will not go into much detail on these.
 
@@ -664,17 +664,17 @@ $ vi themes/zafta/layouts/index.html
 $
 ```
 
-Hugo uses the Go template engine. That engine scans the template files for commands which are enclosed between "{{" and "}}". In our template, the commands are:
+Hugo uses the Go template engine. That engine scans the template files for commands which are enclosed between {{ and }}. In our template, the commands are:
 
 1. range
 2. .Title
 3. end
 
-The "range" command is an iterator. We're going to use it to go through the first ten pages. Every HTML file that Hugo creates is treated as a page, so looping through the list of pages will look at every file that will be created.
+The range command is an iterator. We're going to use it to go through the first ten pages. Every HTML file that Hugo creates is treated as a page, so looping through the list of pages will look at every file that will be created.
 
-The ".Title" command prints the value of the "title" variable. Hugo pulls it from the front matter in the Markdown file.
+The .Title command prints the value of the title variable. Hugo pulls it from the front matter in the Markdown file.
 
-The "end" command signals the end of the range iterator. The engine loops back to the top of the iteration when it finds "end." Everything between the "range" and "end" is evaluated every time the engine goes through the iteration. In this file, that would cause the title from the first ten pages to be output as heading level one.
+The end command signals the end of the range iterator. The engine loops back to the top of the iteration when it finds end. Everything between the range and end is evaluated every time the engine goes through the iteration. In this file, that would cause the title from the first ten pages to be output as heading level one.
 
 It's helpful to remember that some variables, like .Data, are created before any output files. Hugo loads every content file into the variable and then gives the template a chance to process before creating the HTML files.
 
@@ -686,7 +686,7 @@ $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{"tag":"tags", "category":"categories"}
+INFO: 2014/09/29 found taxonomies: map[string]string{tag:tags, category:categories}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content 
 0 future content 
@@ -719,7 +719,7 @@ And, if that were entirely true, this tutorial would be much shorter. There are 
 
 ### Add Content to the Posts
 
-We're working with posts, which are in the content/post/ directory. That means that their section is "post" (and if we don't do something weird, their type is also "post").
+We're working with posts, which are in the content/post/ directory. That means that their section is post (and if we don't do something weird, their type is also post).
 
 Hugo uses the section and type to find the template file for every piece of content. Hugo will first look for a template file that matches the section or type name. If it can't find one, then it will look in the _default/ directory. There are some twists that we'll cover when we get to categories and tags, but for now we can assume that Hugo will try post/single.html, then _default/single.html.
 
@@ -763,7 +763,7 @@ $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{"tag":"tags", "category":"categories"}
+INFO: 2014/09/29 found taxonomies: map[string]string{tag:tags, category:categories}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content 
 0 future content 
@@ -818,7 +818,7 @@ $ vi themes/zafta/layouts/index.html
 <html>
 <body>
   {{ range first 10 .Data.Pages }}
-    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+    <h1><a href={{ .Permalink }}>{{ .Title }}</a></h1>
   {{ end }}
 </body>
 </html>
@@ -832,7 +832,7 @@ $ hugo --verbose
 INFO: 2014/09/29 Using config file: /Users/quoha/Sites/zafta/config.toml
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/themes/zafta/static/ to /Users/quoha/Sites/zafta/public/
 INFO: 2014/09/29 syncing from /Users/quoha/Sites/zafta/static/ to /Users/quoha/Sites/zafta/public/
-INFO: 2014/09/29 found taxonomies: map[string]string{"tag":"tags", "category":"categories"}
+INFO: 2014/09/29 found taxonomies: map[string]string{tag:tags, category:categories}
 WARN: 2014/09/29 Unable to locate layout: [404.html theme/404.html]
 0 draft content 
 0 future content 
@@ -852,9 +852,9 @@ $ cat public/index.html
 <html>
 <body>
   
-    <h1><a href="/post/second/">second</a></h1>
+    <h1><a href=/post/second/>second</a></h1>
   
-    <h1><a href="/post/first/">first</a></h1>
+    <h1><a href=/post/first/>first</a></h1>
   
 </body>
 </html>
@@ -877,17 +877,17 @@ As with the single post, we have to decide to update _default/list.html or creat
 
 ## Creating Top Level Pages
 
-Let's add an "about" page and display it at the top level (as opposed to a sub-level like we did with posts).
+Let's add an about page and display it at the top level (as opposed to a sub-level like we did with posts).
 
-The default in Hugo is to use the directory structure of the content/ directory to guide the location of the generated html in the public/ directory. Let's verify that by creating an "about" page at the top level:
+The default in Hugo is to use the directory structure of the content/ directory to guide the location of the generated html in the public/ directory. Let's verify that by creating an about page at the top level:
 
 ```
 $ vi content/about.md 
 +++
-title = "about"
-description = "about this site"
-date = "2014-09-27"
-slug = "about time"
+title = about
+description = about this site
+date = 2014-09-27
+slug = about time
 +++
 
 ## about us
@@ -916,18 +916,18 @@ $ cat public/index.html
 <!DOCTYPE html>
 <html>
 <body>
-    <h1><a href="http://localhost:1313/post/theme/">creating a new theme</a></h1>
-    <h1><a href="http://localhost:1313/about-time/">about</a></h1>
-    <h1><a href="http://localhost:1313/post/second-post/">second</a></h1>
-    <h1><a href="http://localhost:1313/post/first-post/">first</a></h1>
-<script>document.write('<script src="http://'
+    <h1><a href=http://localhost:1313/post/theme/>creating a new theme</a></h1>
+    <h1><a href=http://localhost:1313/about-time/>about</a></h1>
+    <h1><a href=http://localhost:1313/post/second-post/>second</a></h1>
+    <h1><a href=http://localhost:1313/post/first-post/>first</a></h1>
+<script>document.write('<script src=http://'
         + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
+		+ ':1313/livereload.js?mindelay=10></'
         + 'script>')</script></body>
 </html>
 ```
 
-Notice that the "about" link is listed with the posts? That's not desirable, so let's change that first.
+Notice that the about link is listed with the posts? That's not desirable, so let's change that first.
 
 ```
 $ vi themes/zafta/layouts/index.html
@@ -936,15 +936,15 @@ $ vi themes/zafta/layouts/index.html
 <body>
   <h1>posts</h1>
   {{ range first 10 .Data.Pages }}
-    {{ if eq .Type "post"}}
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ if eq .Type post}}
+      <h2><a href={{ .Permalink }}>{{ .Title }}</a></h2>
     {{ end }}
   {{ end }}
 
   <h1>pages</h1>
   {{ range .Data.Pages }}
-    {{ if eq .Type "page" }}
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ if eq .Type page }}
+      <h2><a href={{ .Permalink }}>{{ .Title }}</a></h2>
     {{ end }}
   {{ end }}
 </body>
@@ -970,11 +970,11 @@ Knowing that hugo is using the slug to generate the file name, the simplest solu
 ```
 $ vi config.toml
 [permalinks]
-	page = "/:title/"
-	about = "/:filename/"
+	page = /:title/
+	about = /:filename/
 ```
 
-Generate the web site and verify that this didn't work. Hugo lets "slug" or "URL" override the permalinks setting in the configuration file. Go ahead and comment out the slug in content/about.md, then generate the web site to get it to be created in the right place.
+Generate the web site and verify that this didn't work. Hugo lets slug or URL override the permalinks setting in the configuration file. Go ahead and comment out the slug in content/about.md, then generate the web site to get it to be created in the right place.
 
 ## Sharing Templates
 
@@ -1007,11 +1007,11 @@ $ vi themes/zafta/layouts/partials/footer.html
 The most noticeable difference between a template call and a partials call is the lack of path:
 
 ```
-{{ template "theme/partials/header.html" . }}
+{{ template theme/partials/header.html . }}
 ```
 versus
 ```
-{{ partial "header.html" . }}
+{{ partial header.html . }}
 ```
 Both pass in the context.
 
@@ -1019,38 +1019,38 @@ Let's change the home page template to use these new partials.
 
 ```
 $ vi themes/zafta/layouts/index.html
-{{ partial "header.html" . }}
+{{ partial header.html . }}
 
   <h1>posts</h1>
   {{ range first 10 .Data.Pages }}
-    {{ if eq .Type "post"}}
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ if eq .Type post}}
+      <h2><a href={{ .Permalink }}>{{ .Title }}</a></h2>
     {{ end }}
   {{ end }}
 
   <h1>pages</h1>
   {{ range .Data.Pages }}
-    {{ if or (eq .Type "page") (eq .Type "about") }}
-      <h2><a href="{{ .Permalink }}">{{ .Type }} - {{ .Title }} - {{ .RelPermalink }}</a></h2>
+    {{ if or (eq .Type page) (eq .Type about) }}
+      <h2><a href={{ .Permalink }}>{{ .Type }} - {{ .Title }} - {{ .RelPermalink }}</a></h2>
     {{ end }}
   {{ end }}
 
-{{ partial "footer.html" . }}
+{{ partial footer.html . }}
 :wq
 ```
 
-Generate the web site and verify the results. The title on the home page is now "your title here", which comes from the "title" variable in the config.toml file.
+Generate the web site and verify the results. The title on the home page is now your title here, which comes from the title variable in the config.toml file.
 
 ### Update the Default Single Template to Use the Partials
 
 ```
 $ vi themes/zafta/layouts/_default/single.html
-{{ partial "header.html" . }}
+{{ partial header.html . }}
 
   <h1>{{ .Title }}</h1>
   {{ .Content }}
 
-{{ partial "footer.html" . }}
+{{ partial footer.html . }}
 :wq
 ```
 
@@ -1058,35 +1058,35 @@ Generate the web site and verify the results. The title on the posts and the abo
 
 ## Add “Date Published” to Posts
 
-It's common to have posts display the date that they were written or published, so let's add that. The front matter of our posts has a variable named "date." It's usually the date the content was created, but let's pretend that's the value we want to display.
+It's common to have posts display the date that they were written or published, so let's add that. The front matter of our posts has a variable named date. It's usually the date the content was created, but let's pretend that's the value we want to display.
 
 ### Add “Date Published” to the Template
 
 We'll start by updating the template used to render the posts. The template code will look like:
 
 ```
-{{ .Date.Format "Mon, Jan 2, 2006" }}
+{{ .Date.Format Mon, Jan 2, 2006 }}
 ```
 
 Posts use the default single template, so we'll change that file.
 
 ```
 $ vi themes/zafta/layouts/_default/single.html
-{{ partial "header.html" . }}
+{{ partial header.html . }}
 
   <h1>{{ .Title }}</h1>
-  <h2>{{ .Date.Format "Mon, Jan 2, 2006" }}</h2>
+  <h2>{{ .Date.Format Mon, Jan 2, 2006 }}</h2>
   {{ .Content }}
 
-{{ partial "footer.html" . }}
+{{ partial footer.html . }}
 :wq
 ```
 
-Generate the web site and verify the results. The posts now have the date displayed in them. There's a problem, though. The "about" page also has the date displayed.
+Generate the web site and verify the results. The posts now have the date displayed in them. There's a problem, though. The about page also has the date displayed.
 
-As usual, there are a couple of ways to make the date display only on posts. We could do an "if" statement like we did on the home page. Another way would be to create a separate template for posts.
+As usual, there are a couple of ways to make the date display only on posts. We could do an if statement like we did on the home page. Another way would be to create a separate template for posts.
 
-The "if" solution works for sites that have just a couple of content types. It aligns with the principle of "code for today," too.
+The if solution works for sites that have just a couple of content types. It aligns with the principle of code for today, too.
 
 Let's assume, though, that we've made our site so complex that we feel we have to create a new template type. In Hugo-speak, we're going to create a section template.
 
@@ -1095,12 +1095,12 @@ Let's restore the default single template before we forget.
 ```
 $ mkdir themes/zafta/layouts/post
 $ vi themes/zafta/layouts/_default/single.html
-{{ partial "header.html" . }}
+{{ partial header.html . }}
 
   <h1>{{ .Title }}</h1>
   {{ .Content }}
 
-{{ partial "footer.html" . }}
+{{ partial footer.html . }}
 :wq
 ```
 
@@ -1108,13 +1108,13 @@ Now we'll update the post's version of the single template. If you remember Hugo
 
 ```
 $ vi themes/zafta/layouts/post/single.html
-{{ partial "header.html" . }}
+{{ partial header.html . }}
 
   <h1>{{ .Title }}</h1>
-  <h2>{{ .Date.Format "Mon, Jan 2, 2006" }}</h2>
+  <h2>{{ .Date.Format Mon, Jan 2, 2006 }}</h2>
   {{ .Content }}
 
-{{ partial "footer.html" . }}
+{{ partial footer.html . }}
 :wq
 
 ```
