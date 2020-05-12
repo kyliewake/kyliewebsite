@@ -27,10 +27,10 @@ html, body {
   border-color: #3aaecf;
 }
 .navbar-default .navbar-brand {
-  color: #6b6b6b;
+  color: #3aaecf;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #6b6b6b;
+  color: #3aaecf;
 }
 .navbar-default .navbar-text {
   color: #6b6b6b;
